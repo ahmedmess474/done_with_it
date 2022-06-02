@@ -1,0 +1,139 @@
+for this section we are going to learn how to create layout in react native
+
+Fun begins 
+Dimensions, Device Orientation, Flexbox, Absolute & Relative positioning.
+
+1- Dimensions:
+
+    1- "50%" to take the half of the screen, 
+    2- but we can use numbers to express the width & the height 
+    which will be displayed differently on each device, 
+    because each device have it's own dimensions.
+    3- in some situations we want to find the size of component based on 
+    the size of the screen that's when we use the "DIMENSION" API
+    we can use it like this: 
+        Dimensions.get("window" || "screen");
+            window: the visible application window. 
+            screen: returns the size of the entire screen.
+
+            the window size is always a little bit smaller then the 
+            screen size.
+
+2- detect screen orientation:
+     first to support different orientation we need to go to app.json
+     by default the orientation will be set to "portrait" 
+     we can change it to default to support both mods. 
+
+     so to detect screen orientation we use a library developped by react
+     native community called "hooks"
+
+     hooks are function that bring extra capability to function component
+     so let's install this library: 
+        then import useDimensions hook from this new library.
+        using the useDimensions hook we can get the correct dimensions 
+        of the screen whether we are on "portrait" or "landscape"
+
+        so as a recap every time we rotate our device our component get's 
+        recalled and then recalculate the dimensions using this hook;
+
+        useDimensions -------> getting dimensions,
+        useDeviceOrientation ---> getting orientation
+
+
+<SafeAreaView style={styles.container}>
+      <View style={{
+        backgroundColor: "dodgerblue",
+        width: "100%", 
+        height: landscape ? '100%' : "30%"
+      }}>
+
+      </View>
+    </SafeAreaView>
+
+
+3- flexbox: 
+    with flex we can easily build complex layouts that work good across
+    different screen sizes.
+    same concept in CSS but flexbox in react native is a little bit different 
+    flex is a container and then align children inside that container 
+
+    Basics of flex: 
+        check this code: 
+            <View style={{
+      backgroundColor:"#000",
+      flex: 1
+    }}>
+      <View style={{
+        backgroundColor:"orangered",
+        flex: 2
+      }} />
+      <View style={{
+        backgroundColor:"tomato",
+        flex: 3
+      }} />
+      <View style={{
+        backgroundColor:"gold",
+        flex: 0.5
+      }} />
+    </View>
+
+    **** ----: Flexbox direction: 
+        we have 4 values for this property: 
+        1- row,                 3- column,
+        2- row-reverse,         4- column-reverse
+
+    **** ----: Aligning items: 
+        how can we push items to the right or center them. 
+        that's when we use the "justifyContent" property 
+        and we have another property called "alignItems"
+        align items on the secondary access
+
+
+        justifyContent ---> align items on the main access
+        alignItems --> align items on the secondary access
+
+        this properties works only with the parent 
+        when we want to change the position of any child 
+        we use "alignSelf" property
+
+    **** ----: flexWrap and alignContent:
+        if our items overflow across the main access one or more items 
+        will be small so other items can fit on the screen  
+        we can change this behavior by enabling WRAPPING
+
+        NOTE: when we enable wrap the align items property behaves 
+        a little bit differently 
+        that's where we use "alignContent" 
+
+        difference between "alignItems" --- "alignContent"
+        "alignItems": determine the alignment of items within each line.
+        "alignContent": determine the alignment of the entire content 
+
+        NOTE: alignContent works only when we have wrapping 
+        if we don't it will not work.
+
+
+    **** ----: flexBasis, flexGrow and flexShrink:
+        flexBasis: ---> for children can map to width or height 
+        based on the primary access ("row" || "column").
+        flexGrow: ---> same thing with the flex property both takes all 
+        the space available in the screen.
+        flexShrink: ---> the opposite of flexGrow. 
+        means that if we are overflowing this element can get shrunk 
+        to leave space to other's in the screen.
+
+
+    **** ----: Absolute & Relative Positioning:
+                    **** Relative ****
+        with the top, left, right, bottom: we can position a component 
+        relatively to it's current position WITHOUT affecting the layout
+        around it.
+
+        this happens because all components in react-native have the position
+        set to relative (position: "relative") by default.
+
+                    **** Absolute ****
+        means that the component will be positioned relatively based on his 
+        parent. that's it mother fucker 
+
+        exercise: 
