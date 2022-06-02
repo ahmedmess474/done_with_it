@@ -1,0 +1,39 @@
+so we use expo for our app 
+
+Project structure 
+assets: ----> that's where we put our images && files and videos ....  .
+
+app.js: ---> basic react native component 
+View is like a div in the web world 
+
+in react native we dont have html elements 
+we use the components from react-native. 
+
+to Create the styles as a variables in react native 
+so we declare a variable like this 
+
+const styles = Stylesheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: #fff,
+        ....
+    }
+}); 
+
+os we use the Class Stylesheet.create and then we pass in an object 
+
+Sso as a finish 
+to start our app we use Expo server 
+
+we open the terminal and we type npm start 
+
+The simplest way to debug our react-native apps is using the good old 
+console.log()  -------> statement
+
+we can debug in chrome or in vs code both are normal
+
+How to publish our app to expo to be visible to anyone in the world 
+
+we can publish our app using metro bundler || or from the terminal 
+using expo publish so let's try the publish command
+

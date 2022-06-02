@@ -1,0 +1,95 @@
+Fundamental Concepts 
+
+we have many core components in react native (like html tags (div, span, img .....))
+
+so in react-native or in mobile development we have 
+1- View, 
+2- Text,
+3- Image,
+4- Button, 
+5- Touchables,
+6- Alert 
+and many others we are going to see them in this course. 
+
+
+check all this component in reactnative.dev/docs
+
+we have specific components for android and others for ios 
+and we have the cross plateform components 
+
+and we have a bunch of API's which gives us access to native functions 
+they are not UI Widjets. For example we can use Keyboard API.
+
+the Keyboard module allows us to listen for native events and react to them.
+
+like the stylesheet function we saw earlier 
+
+                    -------- Components ------------
+
+1- Views: 
+    is the most basic and Fundamental component in react native for building UI
+    it's like a "div" in the mobile thing. we use it for grouping our elements. 
+
+    always note that in ios devices there is that little bar above. 
+    so he hide things. --------> Makes a problem. 
+
+    that's when we use a special type of VIEW called "SAFE AREA VIEW" 
+
+2- Text: 
+    we use it for displaying Text we should always wrap our text in this component,
+    this component have many props So let's take a look at this props: 
+    numberOfLines, onPress(make it act like a link).
+
+3- Images: 
+    use it when we want to render an image 
+    so to render an image we use the Image tag 
+    then pass "source" as a prop 
+    which takes in an object exp: 
+    source={require("./assets/icon.png")},
+    that's how for an existing image 
+    but for a network image we download it like this 
+        <Image
+          source={{
+            uri: 'https://reactnative.dev/docs/assets/p_cat2.png',
+          }}
+          style={{ width: 200, height: 200 }}
+        />
+    like the text component Image have too many props 
+
+4- Touchables: 
+    we can make anything touchable using this components : 
+        1- Touchable Highlight,
+        2- Touchable Opacity,
+        3- Touchable without FeedBack
+    this are the three cross plateform touchable components we have 
+    in react native. 
+    and there is "TouchableNativeFeedback" -------> ONLY ANDROID.
+
+5- Buttons: 
+    the value of the button we put it the "title" props 
+    and each plateform represent the button with her own style
+    and note that the button always self closing tag.
+
+6- Alerts: 
+    standard alert box let's see how we can do it 
+    using the onPress on the button that we created using the alert function.
+    but when we want to customize it we use the "Alert" API 
+    it's not a component it's an API (object with a couple of methods)
+    let's try it 
+    we have two methods in this object: 
+        1- alert: like the alert we have seen above.
+            this one takes some parametres: 
+                1- title,
+                2- Message,
+                3- Array of Buttons ----> 
+                        each button is an object 
+                        that takes in 3 properties
+                            1- text,
+                            2- style,
+                            3- onPress --> function
+        2- prompt: ask a question like the confirm in the web.
+            does not work on android devices only on iphone.
+
+
+****** Platform Specific Code *****
+we use the platform module from react-native
